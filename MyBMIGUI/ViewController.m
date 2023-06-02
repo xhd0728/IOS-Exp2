@@ -10,14 +10,20 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *text_input_1;
+@property (weak, nonatomic) IBOutlet UILabel *label_1;
+
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (IBAction)button_1:(id)sender {
+    self.label_1.text = self.text_input_1.text;
 }
 
+- (IBAction)button_2:(id)sender {
+    self.label_1.text = @"";
+    self.text_input_1.text = @"";
+}
 
 @end
