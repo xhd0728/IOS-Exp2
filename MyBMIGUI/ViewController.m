@@ -18,7 +18,12 @@
 @implementation ViewController
 
 - (IBAction)button_1:(id)sender {
-    self.label_1.text = self.text_input_1.text;
+    if([self.text_input_1.text length] == 0){
+        self.label_1.text = @"无输入";
+    }
+    else{
+        self.label_1.text = [@"您好, " stringByAppendingString: self.text_input_1.text];
+    }
 }
 
 - (IBAction)button_2:(id)sender {
