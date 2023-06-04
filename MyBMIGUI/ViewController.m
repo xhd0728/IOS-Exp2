@@ -10,25 +10,46 @@
 
 @interface ViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextField *text_input_1;
-@property (weak, nonatomic) IBOutlet UILabel *label_1;
+@property (weak, nonatomic) IBOutlet UITextField *input_1;
+@property (weak, nonatomic) IBOutlet UITextField *input_2;
+@property (weak, nonatomic) IBOutlet UILabel *result_1;
 
 @end
 
 @implementation ViewController
 
-- (IBAction)button_1:(id)sender {
-    if([self.text_input_1.text length] == 0){
-        self.label_1.text = @"无输入";
-    }
-    else{
-        self.label_1.text = [@"您好, " stringByAppendingString: self.text_input_1.text];
-    }
+- (IBAction)btn_1:(id)sender {
+    double num_1 = [self.input_1.text doubleValue];
+    double num_2 = [self.input_2.text doubleValue];
+    double res = num_1 + num_2;
+    self.result_1.text = [NSString stringWithFormat:@"%.2lf", res];
 }
 
-- (IBAction)button_2:(id)sender {
-    self.label_1.text = @"";
-    self.text_input_1.text = @"";
+- (IBAction)btn_2:(id)sender {
+    double num_1 = [self.input_1.text doubleValue];
+    double num_2 = [self.input_2.text doubleValue];
+    double res = num_1 - num_2;
+    self.result_1.text = [NSString stringWithFormat:@"%.2lf", res];
+}
+
+- (IBAction)btn_3:(id)sender {
+    double num_1 = [self.input_1.text doubleValue];
+    double num_2 = [self.input_2.text doubleValue];
+    double res = num_1 * num_2;
+    self.result_1.text = [NSString stringWithFormat:@"%.2lf", res];
+}
+
+- (IBAction)btn_4:(id)sender {
+    double num_1 = [self.input_1.text doubleValue];
+    double num_2 = [self.input_2.text doubleValue];
+    double res = num_1 / num_2;
+    self.result_1.text = [NSString stringWithFormat:@"%.2lf", res];
+}
+
+- (IBAction)btn_5:(id)sender {
+    self.result_1.text = @".0";
+    self.input_1.text = @"";
+    self.input_2.text = @"";
 }
 
 @end
